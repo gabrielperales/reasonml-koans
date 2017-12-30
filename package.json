@@ -1,0 +1,22 @@
+{
+  "name": "reason-koans",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2"
+  },
+  "scripts": {
+    "clean": "bsb -clean-world",
+    "make": "bsb -make-world",
+    "watch": "bsb -clean-world && bsb -make-world -w",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "start": "npm run clean; npm run make; run-p watch test:watch"
+  },
+  "devDependencies": {
+    "bs-jest": "^0.2.0",
+    "bs-platform": "^2.1.0"
+  }
+}

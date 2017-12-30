@@ -1,0 +1,13 @@
+{
+  "name": "koans",
+  "sources": [
+    {
+      "type": "dev",
+      "dir": "__tests__"
+    }
+  ],
+  "bs-dev-dependencies": ["bs-jest"],
+  "bsc-flags": ["-bs-super-errors"],
+  "reason": {},
+  "refmt": 3
+}
