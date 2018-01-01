@@ -2,14 +2,21 @@ open Jest;
 
 open ExpectJs;
 
-describe("Expects", () => {
-  test("Expect true to be truthy", () =>
-    expect(true) |> toBeTruthy
-  );
-  test("Expect 1 to be equal to 1", () =>
-    expect(1) |> toEqual(1)
-  );
-  test("Expect 1 to be not equal to 2", () =>
-    expect(1) |> not_ |> toEqual(2)
-  );
+describe("Logical Operators", () => {
+  test("OR operator", () => {
+    expect(true || false) |> toBeTruthy;
+    expect(false || false) |> toBeFalsy;
+    expect(false || true) |> toBeTruthy;
+  });
+  test("AND operator", () => {
+    expect(false && true) |> toBeFalsy;
+    expect(false && false) |> toBeFalsy;
+    expect(true && true) |> toBeTruthy;
+  });
+  test("NOT operator", () => {
+    expect(! false) |> toBeTruthy;
+    expect(! (! false)) |> toBeFalsy;
+    expect(! true) |> toBeFalsy;
+    expect(! true) |> toBeFalsy;
+  });
 });
