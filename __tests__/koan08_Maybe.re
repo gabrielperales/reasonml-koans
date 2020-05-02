@@ -14,7 +14,7 @@ describe("Maybes/Option", () => {
     let nullableString = Js.Nullable.return("a string");
     let str =
       nullableString
-      |> Js.Nullable.to_opt
+      |> Js.Nullable.toOption
       |> Js.Option.getWithDefault("any default value");
     expect(str) |> toBe("a string");
   });

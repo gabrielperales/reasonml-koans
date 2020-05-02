@@ -5,12 +5,11 @@ open Expect;
 describe("Regexes", () => {
   test("Regex can be creted with [%bs \"REGEX\"]", () => {
     let result =
-      [%bs.re "/world/gi"]
-      |> Js.Re.exec("Hello World")
+      Js.Re.exec_([%bs.re "/world/gi"], "Hello World")
       |> (
         result =>
           switch result {
-          | Some(result) => Js.Re.captures(result)[0] |> Js.Nullable.to_opt
+          | Some(result) => Js.Re.captures(result)[0] |> Js.Nullable.toOption
           | None => None
           }
       )
@@ -20,11 +19,11 @@ describe("Regexes", () => {
   test("Regex can be creted with Js.Re.fromString(\"STRING\")", () => {
     let re = Js.Re.fromString("world");
     let result =
-      Js.Re.exec("Helloworld!", re)
+      Js.Re.exec_(re, "Helloworld!")
       |> (
         result =>
           switch result {
-          | Some(result) => Js.Re.captures(result)[0] |> Js.Nullable.to_opt
+          | Some(result) => Js.Re.captures(result)[0] |> Js.Nullable.toOption
           | None => None
           }
       )
@@ -34,13 +33,13 @@ describe("Regexes", () => {
   test(
     "Regex can be creted with Js.Re.fromStringWithFlags(\"STRING\", \"FLAGS\")",
     () => {
-    let re = Js.Re.fromStringWithFlags("world", "i");
+    let re = Js.Re.fromStringWithFlags("world", ~flags="i");
     let result =
-      Js.Re.exec("HELLO WORLD!", re)
+      Js.Re.exec_(re, "HELLO WORLD!")
       |> (
         result =>
           switch result {
-          | Some(result) => Js.Re.captures(result)[0] |> Js.Nullable.to_opt
+          | Some(result) => Js.Re.captures(result)[0] |> Js.Nullable.toOption
           | None => None
           }
       )

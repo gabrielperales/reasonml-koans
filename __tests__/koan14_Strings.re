@@ -10,7 +10,7 @@ describe("Strings", () => {
   });
   test("Uppercase a string", () => {
     let str = "Hello, World!";
-    expect(String.uppercase(str)) |> toEqual("HELLO, WORLD!");
+    expect(String.uppercase_ascii(str)) |> toEqual("HELLO, WORLD!");
   });
   test("Trim a string", () => {
     let str = "   Hello, World!     ";

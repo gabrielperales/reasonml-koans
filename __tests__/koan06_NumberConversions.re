@@ -29,7 +29,7 @@ describe("Number conversions", () => {
   test("From string to float", () => {
     let float = float_of_string("1.5");
     let floatJs = Js.Float.fromString("3.5");
-    expect(float) |> toEqual(1.5);
+    expect(float) |> toEqual(1.5) |> ignore;
     expect(floatJs) |> toEqual(3.5);
   });
 });
